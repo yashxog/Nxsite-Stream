@@ -1,0 +1,1 @@
+1. "| ./node_modules/.bin/bunyan" ( not added (its for logger) inn scripts for dev in packag.json because giving error to run);
