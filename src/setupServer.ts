@@ -15,6 +15,7 @@ import { config } from '@root/config';
 import applicationRoutes from '@root/routes';
 import { CustomError, IErrorResponse } from '@globals/helpers/error-handler';
 
+
 const SERVER_PORT = 5000;
 const log: Logger = config.createLogger('server');
 
@@ -104,7 +105,7 @@ export class NxsiteServer {
   }
 
   private startHttpServer(httpServer: http.Server): void {
-    log.info(`Server has sytarted with process ${process.pid}`);
+    log.info(`Server has started with process ${process.pid}`);
     httpServer.listen(SERVER_PORT, () => {
       log.info(`Server running on port ${SERVER_PORT}`);
     });

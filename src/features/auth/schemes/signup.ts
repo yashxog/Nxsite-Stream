@@ -1,7 +1,7 @@
 import Joi, { ObjectSchema } from 'joi';
 
 const signupSchema: ObjectSchema = Joi.object().keys({
-  username: Joi.string().required().min(4).max(15).messages({
+  username: Joi.string().required().min(4).max(30).messages({
     'string.base': 'Username must be of type string',
     'string.min': 'Invalid username',
     'string.max': 'Invalid username',
@@ -18,16 +18,15 @@ const signupSchema: ObjectSchema = Joi.object().keys({
     'string.email': 'Email must be valid',
     'string.empty': 'Email is a required field'
   }),
+  avatarColor: Joi.string().required().messages({
+    'any.required': 'Avatar color is required'
+  }),
+  avatarImage: Joi.string().required().messages({
+    'any.required': 'Avatar image is required'
+  }),
   mobileNumber: Joi.string().required().pattern(/^[0-9]{10}$/).message(
     'Mobile number must be a valid 10-digit number'
-  )
-
-  // avatarColor: Joi.string().required().messages({
-  //   'any.required': 'Avatar color is required'
-  // }),
-  // avatarImage: Joi.string().required().messages({
-  //   'any.required': 'Avatar image is required'
-  // })
+  ),
 
 
 });
