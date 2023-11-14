@@ -26,14 +26,14 @@ export class NxsiteServer {
   }
 
   public start(): void {
-    this.sequrityMiddleware(this.app);
+    this.secqurityMiddleware(this.app);
     this.standardMiddleware(this.app);
     this.routesMiddleware(this.app);
     this.globalErrorHandler(this.app);
     this.startServer(this.app);
   }
 
-  private sequrityMiddleware(app: Application): void {
+  private secqurityMiddleware(app: Application): void {
     app.use(
       cookieSession({
         name: 'session',
@@ -61,6 +61,9 @@ export class NxsiteServer {
   }
 
   private routesMiddleware(app: Application): void {
+    app.post('/hello', (req, res) => {
+      res.status(200).json({ message: 'Hello, World!' });
+    });
     applicationRoutes(app);
   }
 
@@ -104,11 +107,12 @@ export class NxsiteServer {
   }
 
   private startHttpServer(httpServer: http.Server): void {
-    log.info(`Server has sytarted with process ${process.pid}`);
+    log.info(`Server has started with process ${process.pid}`);
     httpServer.listen(SERVER_PORT, () => {
       log.info(`Server running on port ${SERVER_PORT}`);
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   private socketIOConnections(io: Server): void {}
 }
