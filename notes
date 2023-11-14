@@ -1,1 +1,4 @@
 1. "| ./node_modules/.bin/bunyan" ( not added (its for logger) inn scripts for dev in packag.json because giving error to run);
+2.  "Look for (// this.log) I did this Change insted of using logger from bunyan we used simple console.log change it if bunyan;
+ started working to console.lo".
+3. In user.service.ts we have use aggregate insted of normal findOne or find because it is more efficient and gives more operators that we can use.

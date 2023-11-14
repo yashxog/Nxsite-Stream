@@ -16,7 +16,6 @@ class Config {
   public CLOUD_API_KEY: string | undefined;
   public CLOUD_API_SECRET: string | undefined;
 
-
   private DEFAULT_DATABASE_URL = 'mongodb://0.0.0.0/nxsite-stream-backend';
 
   constructor() {
@@ -26,6 +25,9 @@ class Config {
     this.SECRETE_KEY_2 = process.env.SECRETE_KEY_2 || '';
     this.CLIENT_URL = process.env.CLIENT_URL || '';
     this.REDIS_HOST = process.env.REDIS_HOST || '';
+    this.CLOUD_NAME = process.env.CLOUD_NAME || '';
+    this.CLOUD_API_KEY = process.env.CLOUD_API_KEY || '';
+    this.CLOUD_API_SECRET = process.env.CLOUD_API_SECRET || '';
   }
 
   public createLogger(name: string): bunyan {
@@ -47,6 +49,6 @@ class Config {
       api_secret: this.CLOUD_API_SECRET
     });
   }
- }
+}
 
 export const config: Config = new Config();

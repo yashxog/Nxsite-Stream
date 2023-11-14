@@ -15,7 +15,6 @@ import { config } from '@root/config';
 import applicationRoutes from '@root/routes';
 import { CustomError, IErrorResponse } from '@globals/helpers/error-handler';
 
-
 const SERVER_PORT = 5000;
 const log: Logger = config.createLogger('server');
 
@@ -27,14 +26,14 @@ export class NxsiteServer {
   }
 
   public start(): void {
-    this.sequrityMiddleware(this.app);
+    this.secqurityMiddleware(this.app);
     this.standardMiddleware(this.app);
     this.routesMiddleware(this.app);
     this.globalErrorHandler(this.app);
     this.startServer(this.app);
   }
 
-  private sequrityMiddleware(app: Application): void {
+  private secqurityMiddleware(app: Application): void {
     app.use(
       cookieSession({
         name: 'session',
@@ -62,6 +61,9 @@ export class NxsiteServer {
   }
 
   private routesMiddleware(app: Application): void {
+    app.post('/hello', (req, res) => {
+      res.status(200).json({ message: 'Hello, World!' });
+    });
     applicationRoutes(app);
   }
 
@@ -111,5 +113,6 @@ export class NxsiteServer {
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   private socketIOConnections(io: Server): void {}
 }

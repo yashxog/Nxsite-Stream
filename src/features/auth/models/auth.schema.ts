@@ -10,7 +10,7 @@ const authSchema: Schema = new Schema(
     uId: { type: String },
     name: { type: String },
     gender: { type: String },
-    dob:  {type: Date},
+    dob: { type: Date },
     email: { type: String },
     mobileNumber: { type: String },
     password: { type: String },

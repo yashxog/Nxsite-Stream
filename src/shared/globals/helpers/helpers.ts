@@ -1,11 +1,10 @@
-
 export class Helpers {
   static firstLetterUppercase(str: string): string {
     const valueString = str.toLowerCase();
     return valueString
-    .split(' ')
-    .map((value: string) => `${value.charAt(0).toUpperCase()}${value.slice(1).toLowerCase()}`)
-    .join(' ');
+      .split(' ')
+      .map((value: string) => `${value.charAt(0).toUpperCase()}${value.slice(1).toLowerCase()}`)
+      .join(' ');
   }
 
   static lowerCase(str: string): string {
@@ -20,5 +19,14 @@ export class Helpers {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return parseInt(result, 10);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  static parseJson(prop: string): any {
+    try {
+      JSON.parse(prop);
+    } catch (error) {
+      return prop;
+    }
   }
 }

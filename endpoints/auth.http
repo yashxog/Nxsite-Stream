@@ -8,7 +8,7 @@ Accept: application/json
 withCredintials: true
 
 {
-  "username": "" ,
+  "username": "yash" ,
   "gender": "",
   "dob": "",
   "email": "",

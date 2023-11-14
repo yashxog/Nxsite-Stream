@@ -11,11 +11,13 @@ export function uploads(
       file,
       {
         public_id,
-        overwrite
+        overwrite,
+        invalidate
       },
       (error: UploadApiErrorResponse | undefined, result: UploadApiResponse | undefined) => {
         if (error) resolve(error);
         resolve(result);
-      });
+      }
+    );
   });
 }
