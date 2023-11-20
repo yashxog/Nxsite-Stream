@@ -31,42 +31,7 @@ export interface IUserDocument extends Document {
   bgImageVersion: string;
   bgImageId: string;
   profilePicture: string;
-  passwordResetToken?: string;
-  passwordResetExpires?: number | string;
   createdAt?: Date;
-}
-
-export interface IUser {
-  _id: string | ObjectId;
-  authId: string | ObjectId;
-  uId: string;
-  username: string;
-  name: string;
-  gender: string;
-  dob: Date;
-  email: string;
-  mobileNumber: number;
-  password?: string;
-  avatarColor: string;
-  createdAt: Date;
-  videoPostsCount: number;
-  work: string;
-  school: string;
-  quote: string;
-  location: string;
-  blocked: mongoose.Types.ObjectId[];
-  blockedBy: mongoose.Types.ObjectId[];
-  followersCount: number;
-  followingCount: number;
-  cicrleJoinedCount: number;
-  circleMemberCount: number;
-  notifications: INotificationSettings;
-  social: ISocialLinks;
-  bgImageVersion: string;
-  bgImageId: string;
-  profilePicture: string;
-  passwordResetToken?: string;
-  passwordResetExpires?: number | string;
 }
 
 export interface IResetPasswordParams {

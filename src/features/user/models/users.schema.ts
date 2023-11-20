@@ -9,8 +9,6 @@ const userSchema: Schema = new Schema({
   followingCount: { type: Number, default: 0 },
   circleJoinedCount: { type: Number, default: 0 },
   circleMembersCount: { type: Number, default: 0 },
-  passwordResetToken: { type: String, default: '' },
-  passwordResetExpires: { type: Number },
   blocked: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   blockedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   notifications: {
