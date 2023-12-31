@@ -37,7 +37,7 @@ export class SignIn {
         gender: existingUser.gender,
         dob: existingUser.dob,
         mobileNumber: existingUser.mobileNumber,
-        avatarColor: existingUser.avatarColor
+
       },
       config.JWT_TOKEN!
     );
@@ -54,7 +54,6 @@ export class SignIn {
       gender: existingUser!.gender,
       dob: existingUser!.dob,
       mobileNumber: existingUser!.mobileNumber,
-      avatarColor: existingUser!.avatarColor,
       createdAt: existingUser!.createdAt
     } as IUserDocument;
 

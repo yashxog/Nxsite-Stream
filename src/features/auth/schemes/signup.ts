@@ -28,9 +28,6 @@ const signupSchema: ObjectSchema = Joi.object().keys({
       'string.pattern.base': 'Date of birth must be in DD-MM-YYYY format',
       'any.required': 'Date of birth is a required field'
     }),
-  avatarColor: Joi.string().required().messages({
-    'any.required': 'Avatar color is required'
-  }),
   avatarImage: Joi.string().required().messages({
     'any.required': 'Avatar image is required'
   }),

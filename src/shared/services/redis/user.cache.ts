@@ -1,7 +1,12 @@
 import { BaseCache } from '@services/redis/base.cache';
 import { IUserDocument } from '@user/interfaces/user.interface';
 import { ServerError } from '@globals/helpers/error-handler';
+import { config } from '@root/config';
 import { Helpers } from '@globals/helpers/helpers';
+import Logger from 'bunyan';
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const log: Logger = config.createLogger('userCache');
 
 export class UserCache extends BaseCache {
   constructor() {
@@ -19,7 +24,6 @@ export class UserCache extends BaseCache {
       dob,
       email,
       mobileNumber,
-      avatarColor,
       videoPostsCount,
       blocked,
       blockedBy,
@@ -28,10 +32,6 @@ export class UserCache extends BaseCache {
       cicrleJoinedCount,
       circleMembersCount,
       notifications,
-      work,
-      location,
-      school,
-      quote,
       bgImageId,
       bgImageVersion,
       profilePicture,
@@ -55,8 +55,6 @@ export class UserCache extends BaseCache {
       `${email}`,
       'mobileNumber',
       `${mobileNumber}`,
-      'avatarColor',
-      `${avatarColor}`,
       'createdAt',
       `${createdAt}`,
       'videoPostsCount',
@@ -85,14 +83,6 @@ export class UserCache extends BaseCache {
     ];
 
     const thirdList: string[] = [
-      'work',
-      `${work}`,
-      'location',
-      `${location}`,
-      'school',
-      `${school}`,
-      'quote',
-      `${quote}`,
       'bgImageId',
       `${bgImageId}`,
       'bgImageVersion',

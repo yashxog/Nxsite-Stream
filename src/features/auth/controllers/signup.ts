@@ -22,7 +22,7 @@ const userCache: UserCache = new UserCache();
 export class SignUp {
   @joiValidation(signupSchema)
   public async create(req: Request, res: Response): Promise<void> {
-    const { username, name, gender, dob, mobileNumber, email, password, avatarColor, avatarImage } = req.body;
+    const { username, name, gender, dob, mobileNumber, email, password, avatarImage } = req.body;
 
     // checking if user exist in db
     const checkIfUserExist: IAuthDocument = await authService.getUserByUsernameOrEmail(username, email);
@@ -43,7 +43,6 @@ export class SignUp {
       email: Helpers.lowerCase(email),
       mobileNumber,
       password,
-      avatarColor
     });
 
     // uploding picture to cloudnairy
@@ -79,14 +78,13 @@ export class SignUp {
         gender: data.gender,
         dob: data.dob,
         mobileNumber: data.mobileNumber,
-        avatarColor: data.avatarColor
       },
       config.JWT_TOKEN!
     );
   }
 
   private signupData(data: ISignUpData): IAuthDocument {
-    const { _id, uId, username, name, gender, dob, email, mobileNumber, password, avatarColor } = data;
+    const { _id, uId, username, name, gender, dob, email, mobileNumber, password } = data;
     return {
       _id,
       uId,
@@ -97,13 +95,12 @@ export class SignUp {
       email: Helpers.lowerCase(email),
       mobileNumber,
       password,
-      avatarColor,
       createdAt: new Date()
     } as IAuthDocument;
   }
 
   private userData(data: IAuthDocument, userObjectId: ObjectId): IUserDocument {
-    const { _id, username, name, gender, dob, email, mobileNumber, uId, password, avatarColor } = data;
+    const { _id, username, name, gender, dob, email, mobileNumber, uId, password } = data;
     return {
       _id: userObjectId,
       authId: _id,
@@ -115,14 +112,9 @@ export class SignUp {
       email,
       mobileNumber,
       password,
-      avatarColor,
       profilePicture: '',
       blocked: [],
       blockedBy: [],
-      work: '',
-      location: '',
-      school: '',
-      quote: '',
       bgImageVersion: '',
       bgImageId: '',
       followersCount: 0,

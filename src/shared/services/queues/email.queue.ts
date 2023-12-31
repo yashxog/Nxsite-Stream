@@ -1,4 +1,4 @@
-import { emailWorker } from '@root/shared/workers/emai.workers';
+import { emailWorker } from '@root/shared/workers/email.worker';
 import { BaseQueue } from '@services/queues/base.queue';
 import { IEmailJob } from '@user/interfaces/user.interface';
 

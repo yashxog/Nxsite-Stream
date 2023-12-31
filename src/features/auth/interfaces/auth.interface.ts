@@ -16,7 +16,6 @@ export interface AuthPayload {
   email: string;
   username: string;
   name: string;
-  avatarColor: string;
   iat?: number;
 }
 
@@ -30,7 +29,6 @@ export interface IAuthDocument extends Document {
   email: string;
   mobileNumber: number;
   password?: string;
-  avatarColor: string;
   createdAt: Date;
   passwordResetToken?: string;
   passwordResetExpires?: number | string;
@@ -48,7 +46,6 @@ export interface ISignUpData {
   email: string;
   mobileNumber: number;
   password: string;
-  avatarColor: string;
 }
 
 export interface IAuthJob {

@@ -14,6 +14,7 @@ import 'express-async-errors';
 import { config } from '@root/config';
 import applicationRoutes from '@root/routes';
 import { CustomError, IErrorResponse } from '@globals/helpers/error-handler';
+import { SocketIOPostHandler } from './shared/sockets/post';
 
 const SERVER_PORT = 5000;
 const log: Logger = config.createLogger('server');
@@ -113,6 +114,9 @@ export class NxsiteServer {
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  private socketIOConnections(io: Server): void {}
+  private socketIOConnections(io: Server): void {
+    const postSocketHandler: SocketIOPostHandler = new SocketIOPostHandler(io);
+
+    postSocketHandler.listen();
+  }
 }

@@ -13,13 +13,8 @@ export interface IUserDocument extends Document {
   email?: string;
   mobileNumber?: number;
   password?: string;
-  avatarColor?: string;
   uId?: string;
   videoPostsCount: number;
-  work: string;
-  school: string;
-  quote: string;
-  location: string;
   blocked: mongoose.Types.ObjectId[];
   blockedBy: mongoose.Types.ObjectId[];
   followersCount: number;
@@ -48,12 +43,12 @@ export interface INotificationSettings {
   follows: boolean;
 }
 
-export interface IBasicInfo {
-  quote: string;
-  work: string;
-  school: string;
-  location: string;
-}
+// export interface IBasicInfo {
+//   quote: string;
+//   work: string;
+//   school: string;
+//   location: string;
+// }
 
 export interface ISocialLinks {
   facebook: string;
@@ -67,7 +62,6 @@ export interface ISearchUser {
   profilePicture: string;
   username: string;
   email: string;
-  avatarColor: string;
 }
 
 export interface ISocketData {
