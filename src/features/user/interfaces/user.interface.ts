@@ -19,6 +19,8 @@ export interface IUserDocument extends Document {
   blockedBy: mongoose.Types.ObjectId[];
   followersCount: number;
   followingCount: number;
+  joinStreamCount: number;
+  streamMembersCount: number;
   cicrleJoinedCount: number;
   circleMembersCount: number;
   notifications: INotificationSettings;

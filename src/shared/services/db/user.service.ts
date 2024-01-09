@@ -45,6 +45,8 @@ class UserService {
       blockedBy: 1,
       followersCount: 1,
       followingCount: 1,
+      joinStreamCount: 1,
+      streamMembersCount: 1,
       cicrleJoinedCount: 1,
       circleMembersCount: 1,
       notifications: 1,

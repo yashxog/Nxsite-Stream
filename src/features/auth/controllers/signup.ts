@@ -119,6 +119,8 @@ export class SignUp {
       bgImageId: '',
       followersCount: 0,
       followingCount: 0,
+      joinStreamCount: 0,
+      streamMembersCount: 0,
       cicrleJoinedCount: 0,
       circleMemberCount: 0,
       videoPostsCount: 0,

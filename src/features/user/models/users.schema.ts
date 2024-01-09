@@ -7,6 +7,8 @@ const userSchema: Schema = new Schema({
   videoPostsCount: { type: Number, default: 0 },
   followersCount: { type: Number, default: 0 },
   followingCount: { type: Number, default: 0 },
+  joinStreamCount: { type: Number, default: 0 },
+  streamMembersCount: { type: Number, default: 0 },
   circleJoinedCount: { type: Number, default: 0 },
   circleMembersCount: { type: Number, default: 0 },
   blocked: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
