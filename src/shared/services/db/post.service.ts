@@ -4,11 +4,10 @@ import { IUserDocument } from '@user/interfaces/user.interface';
 import { UserModel } from '@user/models/users.schema';
 import { UpdateQuery } from 'mongoose';
 
-
 class PostService {
   public async addPostToDB(userId: string, createdPost: IPostDocument): Promise<void> {
     const post: Promise<IPostDocument> = PostModel.create(createdPost);
-    const user: UpdateQuery<IUserDocument> = UserModel.updateOne({ _id: userId }, { $inc: { postCount: 1 }});
+    const user: UpdateQuery<IUserDocument> = UserModel.updateOne({ _id: userId }, { $inc: { postCount: 1 } });
 
     await Promise.all([post, user]);
   }

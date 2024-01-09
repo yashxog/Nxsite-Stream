@@ -27,10 +27,11 @@
       "@auth/*": ["src/features/auth/*"],
       "@user/*": ["src/features/user/*"],
       "@post/*": ["src/features/post/*"],
+      "@video/*": ["src/features/video/*"],
       "@globals/*": ["src/shared/globals/*"],
       "@services/*": ["src/shared/services/*"],
       "@socket/*": ["src/shared/socket/*"],
-      "@worker/*": ["src/shared/worker/*"],
+      "@worker/*": ["src/shared/workers/*"],
       "@root/*": ["src/*"],
     }
   }

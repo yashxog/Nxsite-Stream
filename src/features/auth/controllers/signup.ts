@@ -42,7 +42,7 @@ export class SignUp {
       dob,
       email: Helpers.lowerCase(email),
       mobileNumber,
-      password,
+      password
     });
 
     // uploding picture to cloudnairy
@@ -77,7 +77,7 @@ export class SignUp {
         name: data.name,
         gender: data.gender,
         dob: data.dob,
-        mobileNumber: data.mobileNumber,
+        mobileNumber: data.mobileNumber
       },
       config.JWT_TOKEN!
     );

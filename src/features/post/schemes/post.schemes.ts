@@ -1,6 +1,5 @@
 import Joi, { ObjectSchema } from 'joi';
 
-
 const postSchema: ObjectSchema = Joi.object().keys({
   post: Joi.string().optional().allow(null, ''),
   bgColor: Joi.string().optional().allow(null, ''),

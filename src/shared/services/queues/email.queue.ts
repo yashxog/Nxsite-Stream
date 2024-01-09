@@ -11,6 +11,6 @@ class EmailQueue extends BaseQueue {
   public addEmailJob(name: string, data: IEmailJob): void {
     this.addJob(name, data);
   }
- }
+}
 
 export const emailQueue: EmailQueue = new EmailQueue();

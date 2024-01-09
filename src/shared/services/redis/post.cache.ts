@@ -4,12 +4,10 @@ import { ServerError } from '@globals/helpers/error-handler';
 import { config } from '@root/config';
 import { ISavePostToCache } from '@post/interfaces/post.interface';
 
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const log: Logger = config.createLogger('userCache');
 
 export class PostCache extends BaseCache {
-
   constructor() {
     super('postCache');
   }
@@ -55,7 +53,7 @@ export class PostCache extends BaseCache {
       'feelings',
       `${feelings}`,
       'privacy',
-      `${privacy}`,
+      `${privacy}`
     ];
 
     const secondList: string[] = [
@@ -68,7 +66,7 @@ export class PostCache extends BaseCache {
       'imgId',
       `${imgId}`,
       'createdAt',
-      `${createdAt}`,
+      `${createdAt}`
     ];
 
     const dataToSave: string[] = [...firstList, ...secondList];
@@ -85,7 +83,6 @@ export class PostCache extends BaseCache {
       const count: number = parseInt(postCount[0], 10) + 1;
       multi.HSET(`user:${currentUserId}`, ['postCount', count]);
       multi.exec();
-
     } catch (error) {
       // log.error(error);
       console.log(error);

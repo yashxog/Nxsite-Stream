@@ -3,7 +3,6 @@ import Logger from 'bunyan';
 import { config } from '@root/config';
 import { posetService } from '@services/db/post.service';
 
-
 const log: Logger = config.createLogger('postWorker');
 
 class PostWorker {
@@ -19,6 +18,5 @@ class PostWorker {
     }
   }
 }
-
 
 export const postWorker: PostWorker = new PostWorker();

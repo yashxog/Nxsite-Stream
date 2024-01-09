@@ -15,7 +15,6 @@ import { IResetPasswordParams } from '@user/interfaces/user.interface';
 import { resetPasswordTemplate } from '@services/emails/templates/reset-password/reset-password-template';
 
 export class Password {
-
   @joiValidation(emailSchema)
   public async create(req: Request, res: Response): Promise<void> {
     const { email } = req.body;
@@ -31,18 +30,18 @@ export class Password {
     await authService.updatePasswordToken(`${existingUser.id!}`, randomCharacters, Date.now() * 60 * 60 * 1000);
 
     const resetLink = `${config.CLIENT_URL}/reset-password=${randomCharacters}`;
-    const template: string = forgotPasswordTemplate .passwordResetTemplate(existingUser.username!, resetLink);
+    const template: string = forgotPasswordTemplate.passwordResetTemplate(existingUser.username!, resetLink);
 
-    emailQueue.addEmailJob('forgotPasswordEmail', { template, receiverEmail: email, subject: 'Reset your Password'});
-    res.status(HTTP_STATUS.OK).json({message: 'Password reset email sent'});
-  };
+    emailQueue.addEmailJob('forgotPasswordEmail', { template, receiverEmail: email, subject: 'Reset your Password' });
+    res.status(HTTP_STATUS.OK).json({ message: 'Password reset email sent' });
+  }
 
   @joiValidation(passwordSchema)
   public async update(req: Request, res: Response): Promise<void> {
     const { password, confirmPassword } = req.body;
     const { token } = req.params;
 
-    if(password !== confirmPassword) {
+    if (password !== confirmPassword) {
       throw new BadRequestError('Password do not match');
     }
 
@@ -66,7 +65,7 @@ export class Password {
 
     const template: string = resetPasswordTemplate.passwordResetConfirmationTemplate(templateParams);
 
-    emailQueue.addEmailJob('forgotPasswordEmail', { template, receiverEmail: existingUser.email!, subject: 'Password Reset Confirmation'});
-    res.status(HTTP_STATUS.OK).json({message: 'Password successfully updated.'});
+    emailQueue.addEmailJob('forgotPasswordEmail', { template, receiverEmail: existingUser.email!, subject: 'Password Reset Confirmation' });
+    res.status(HTTP_STATUS.OK).json({ message: 'Password successfully updated.' });
   }
 }

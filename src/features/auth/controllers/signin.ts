@@ -36,8 +36,7 @@ export class SignIn {
         name: existingUser.name,
         gender: existingUser.gender,
         dob: existingUser.dob,
-        mobileNumber: existingUser.mobileNumber,
-
+        mobileNumber: existingUser.mobileNumber
       },
       config.JWT_TOKEN!
     );

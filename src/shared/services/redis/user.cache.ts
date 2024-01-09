@@ -82,12 +82,7 @@ export class UserCache extends BaseCache {
       JSON.stringify(social)
     ];
 
-    const thirdList: string[] = [
-      'bgImageId',
-      `${bgImageId}`,
-      'bgImageVersion',
-      `${bgImageVersion}`
-    ];
+    const thirdList: string[] = ['bgImageId', `${bgImageId}`, 'bgImageVersion', `${bgImageVersion}`];
 
     const dataToSave: string[] = [...firstList, ...secondList, ...thirdList];
 

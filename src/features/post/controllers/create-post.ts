@@ -13,10 +13,7 @@ import { BadRequestError } from '@globals/helpers/error-handler';
 
 const postCache: PostCache = new PostCache();
 
-
-
 export class Create {
-
   @joiValidation(postSchema)
   public async post(req: Request, res: Response): Promise<void> {
     const { post, bgColor, privacy, gifUrl, profilePicture, feelings } = req.body;
@@ -51,7 +48,7 @@ export class Create {
 
     postQueue.addPostJob('addPostToDB', { key: req.currentUser!.userId, value: createdPost });
 
-    res.status(HTTP_STATUS.CREATED).json({message: 'Post Created Successfully'});
+    res.status(HTTP_STATUS.CREATED).json({ message: 'Post Created Successfully' });
   }
 
   @joiValidation(postWithImageSchema)
@@ -94,6 +91,6 @@ export class Create {
     postQueue.addPostJob('addPostToDB', { key: req.currentUser!.userId, value: createdPost });
     // call image queue to add image to mongo database
 
-    res.status(HTTP_STATUS.CREATED).json({message: 'Post Created With Image Successfully'});
+    res.status(HTTP_STATUS.CREATED).json({ message: 'Post Created With Image Successfully' });
   }
 }
